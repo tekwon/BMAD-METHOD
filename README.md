@@ -1,24 +1,13 @@
-# The BMAD-Method 3.1 (Breakthrough Method of Agile (ai-driven) Development)
+# BMad Method V2
 
-## Do This First, and all will make sense!
+V2 was the major fix to the shortcomings of V1.
 
-There are lots of docs here, but I HIGHLY suggest you just try the Web Agent - it takes just a few minutes to set up in Gemini - and you can use the BMad Agent to explain how this method works, how to set up in the IDE, how to set up in the Web, what should be done in the web or ide (although you can choose your own path also!) - all just by talking to the bmad agent!
+Templates were introduced, and separated from the agents themselves. Also aside from templates, checklists were introduced to give more power in actually vetting the the documents or artifacts being produced were valid and of high quality through a forced round of advanced elicitation.
 
-### Web Quickstart Project Setup (Recommended)
+During V2, this is where the discovery of the power of Gemini Gems and Custom GPTs came to light, really indicating how powerful and cost effective it can be to utilize the Web for a lot of the initial planning, but doing it in a structured repeatable way!
 
-Orchestrator Uber BMad Agent that does it all - already pre-compiled in the `web-build-sample` folder.
+The Web Agents were all granular and clearly defined - a much simpler system, but also somewhat of a pain to create each agent separately in the web while also having to manually export and reimport each document when going agent to agent.
 
-- The contents of [Agent Prompt Sample](web-build-sample/agent-prompt.txt) text get pasted into the Gemini Gem, or ChatPGT customGPT 'Instructions' field.
-- The remaining files in that same folder folder just need to be attached as shown in the screenshot below. Give it a name (such as BMad Agent) and save it, and you now have the BMad Agent available to help you brainstorm, research, plan, execute on your vision, or understand how this all even works!
-- Once its running, start with typing `/help`, and then type option `2` when it presents 3 options to learn about the method!
+Also one confusing aspect was that there were duplicates of temples and checklists for the web versions and the ide versions.
 
-![image info](docs/images/gem-setup.png)
-
-[More Documentation, Explanations, and IDE Specifics](docs/readme.md) available here!
-
-## End Matter
-
-Interested in improving the BMAD Method? See the [contributing guidelines](docs/CONTRIBUTING.md).
-
-Thank you and enjoy - BMad!
-[License](docs/LICENSE)
+But - overall, this was a very low bar to entry to pick up and start using it - The agent personas were all still pretty self contained, aside from calling out to separate template files for the documents.
