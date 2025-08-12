@@ -27,7 +27,7 @@ If you have just completed an MVP with BMad, and you want to continue with post-
 ## The Complete Brownfield Workflow
 
 1. **Follow the [<ins>User Guide - Installation</ins>](user-guide.md#installation) steps to setup your agent in the web.**
-2. **Generate a 'flattened' single file of your entire codebase** run: ```npx bmad-method flatten```
+2. **Generate a 'flattened' single file of your entire codebase** run: `npx bmad-method flatten`
 
 ### Choose Your Approach
 
@@ -253,14 +253,76 @@ Brownfield changes should:
 - Include migration scripts
 - Maintain backwards compatibility
 
-### 4. Test Integration Thoroughly
+### 4. Test Integration with the Test Architect
 
-Focus testing on:
+#### Brownfield-Specific Testing Challenges
 
-- Integration points
-- Existing functionality (regression)
-- Performance impact
-- Data migrations
+The Test Architect (QA agent) is especially valuable in brownfield projects for:
+
+- **Regression Risk Assessment**: Identifying which existing tests might break
+- **Integration Test Design**: Ensuring new code works with legacy systems
+- **Coverage Gap Analysis**: Finding untested legacy code paths
+- **Performance Impact**: Validating no degradation to existing functionality
+
+#### Test Architect Workflow Stages for Brownfield
+
+##### Stage 1: After Story Creation (Critical for Brownfield)
+
+**HIGHLY RECOMMENDED - Identify Integration Risks Early:**
+
+```bash
+# Assess integration risks BEFORE coding
+@qa *risk {brownfield-story}
+# Output: docs/qa/assessments/{epic}.{story}-risk-{YYYYMMDD}.md
+# Why: Identifies legacy dependencies, breaking changes, integration risks
+
+# Design regression-aware test strategy
+@qa *design {brownfield-story}
+# Output: docs/qa/assessments/{epic}.{story}-test-design-{YYYYMMDD}.md
+# Why: Plans tests for both new features AND regression prevention
+```
+
+##### Stage 2: During Development (Monitor Integration)
+
+**Dev Should Check Compatibility:**
+
+```bash
+# Trace requirements to preserve existing functionality
+@qa *trace {brownfield-story}
+# Output: docs/qa/assessments/{epic}.{story}-trace-{YYYYMMDD}.md
+# Why: Maps new requirements AND existing functionality that must work
+
+# Validate performance hasn't degraded
+@qa *nfr {brownfield-story}
+# Output: docs/qa/assessments/{epic}.{story}-nfr-{YYYYMMDD}.md
+# Why: Catch performance regressions early
+```
+
+##### Stage 3: Review (Deep Integration Analysis)
+
+**Standard Review with Brownfield Focus:**
+
+```bash
+@qa *review {brownfield-story}
+```
+
+Performs deep analysis with special attention to:
+
+- Breaking changes to existing APIs
+- Data migration correctness
+- Performance regression
+- Security implications of integrations
+- Backwards compatibility
+- Feature flag correctness
+
+#### Focus Areas for Brownfield Testing
+
+- **Integration Points**: Test all integration points with existing code
+- **Existing Functionality**: Comprehensive regression testing
+- **Performance Impact**: Benchmark against current performance
+- **Data Migrations**: Validate data integrity and rollback procedures
+- **Backwards Compatibility**: Ensure existing clients still work
+- **Feature Flags**: Test both enabled and disabled states
 
 ### 5. Communicate Changes
 
@@ -292,7 +354,10 @@ Document:
 1. Document relevant subsystems
 2. Use `create-brownfield-story` for focused fix
 3. Include regression test requirements
-4. QA validates no side effects
+4. Test Architect validates no side effects using:
+   - Risk profiling for side effect analysis
+   - Trace matrix to ensure fix doesn't break related features
+   - NFR assessment to verify performance/security unchanged
 
 ### Scenario 4: API Integration
 

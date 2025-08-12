@@ -95,9 +95,9 @@ graph TD
     E --> F["Dev: Run All Validations"]
     F --> G["Dev: Mark Ready for Review + Add Notes"]
     G --> H{"User Verification"}
-    H -->|Request QA Review| I["QA: Senior Dev Review + Active Refactoring"]
+    H -->|Request QA Review| I["QA: Test Architect Review + Quality Gate"]
     H -->|Approve Without QA| M["IMPORTANT: Verify All Regression Tests and Linting are Passing"]
-    I --> J["QA: Review, Refactor Code, Add Tests, Document Notes"]
+    I --> J["QA: Test Architecture Analysis + Active Refactoring"]
     J --> L{"QA Decision"}
     L -->|Needs Dev Work| D
     L -->|Approved| M
@@ -211,6 +211,216 @@ dependencies:
 - **Iterative Development**: Work in small, focused tasks
 - **File Organization**: Maintain clean project structure
 - **Commit Regularly**: Save your work frequently
+
+## The Test Architect (QA Agent)
+
+### Overview
+
+The QA agent in BMad is not just a "senior developer reviewer" - it's a **Test Architect** with deep expertise in test strategy, quality gates, and risk-based testing. Named Quinn, this agent provides advisory authority on quality matters while actively improving code when safe to do so.
+
+### Core Capabilities
+
+#### 1. Comprehensive Test Architecture Review
+
+When you run `@qa *review {story}`, Quinn performs:
+
+- **Requirements Traceability**: Maps every acceptance criterion to its validating tests
+- **Test Level Analysis**: Ensures appropriate testing at unit, integration, and E2E levels
+- **Coverage Assessment**: Identifies gaps and redundant test coverage
+- **Active Refactoring**: Improves code quality directly when safe
+- **Quality Gate Decision**: Issues PASS/CONCERNS/FAIL status based on findings
+
+#### 2. Test Design (`*design`)
+
+Creates comprehensive test strategies including:
+
+- Test scenarios for each acceptance criterion
+- Appropriate test level recommendations (unit vs integration vs E2E)
+- Risk-based prioritization (P0/P1/P2)
+- Test data requirements and mock strategies
+- Execution strategies for CI/CD integration
+
+**Example output:**
+
+```yaml
+test_summary:
+  total: 24
+  by_level:
+    unit: 15
+    integration: 7
+    e2e: 2
+  by_priority:
+    P0: 8 # Must have - linked to critical risks
+    P1: 10 # Should have - medium risks
+    P2: 6 # Nice to have - low risks
+```
+
+#### 3. Risk Profiling (`*risk`)
+
+Identifies and assesses implementation risks:
+
+- **Categories**: Technical, Security, Performance, Data, Business, Operational
+- **Scoring**: Probability × Impact analysis (1-9 scale)
+- **Mitigation**: Specific strategies for each identified risk
+- **Gate Impact**: Risks ≥9 trigger FAIL, ≥6 trigger CONCERNS
+
+#### 4. NFR Assessment (`*nfr`)
+
+Validates non-functional requirements:
+
+- **Core Four**: Security, Performance, Reliability, Maintainability
+- **Evidence-Based**: Looks for actual implementation proof
+- **Gate Integration**: NFR failures directly impact quality gates
+
+#### 5. Requirements Tracing (`*trace`)
+
+Maps requirements to test coverage:
+
+- Documents which tests validate each acceptance criterion
+- Uses Given-When-Then for clarity (documentation only, not BDD code)
+- Identifies coverage gaps with severity ratings
+- Creates traceability matrix for audit purposes
+
+#### 6. Quality Gates (`*gate`)
+
+Manages quality gate decisions:
+
+- **Deterministic Rules**: Clear criteria for PASS/CONCERNS/FAIL
+- **Parallel Authority**: QA owns gate files in `docs/qa/gates/`
+- **Advisory Nature**: Provides recommendations, not blocks
+- **Waiver Support**: Documents accepted risks when needed
+
+### Working with the Test Architect
+
+#### Basic Review Flow
+
+1. **Developer completes story** and marks "Ready for Review"
+2. **Start new conversation** with QA agent
+3. **Run review**: `@qa *review {story-file}`
+4. **Quinn performs**:
+   - Deep code analysis
+   - Active refactoring where safe
+   - Test coverage validation
+   - Quality gate decision
+5. **Outputs created**:
+   - QA Results section added to story file
+   - Gate file in `docs/qa/gates/{epic}.{story}-{slug}.yml`
+
+#### Advanced Quality Assessments - When to Use
+
+**AFTER Story Draft (Before Dev Starts):**
+
+```bash
+# Design test strategy BEFORE implementation
+@qa *design {draft-story}
+# Output: docs/qa/assessments/{epic}.{story}-test-design-{YYYYMMDD}.md
+# Why: Guides developer on what tests to write
+
+# Identify risks EARLY to guide implementation
+@qa *risk {draft-story}
+# Output: docs/qa/assessments/{epic}.{story}-risk-{YYYYMMDD}.md
+# Why: Helps developer avoid pitfalls and focus on risk areas
+```
+
+**DURING Development (Mid-Implementation):**
+
+```bash
+# Validate NFR implementation as you build
+@qa *nfr {in-progress-story}
+# Output: docs/qa/assessments/{epic}.{story}-nfr-{YYYYMMDD}.md
+# Why: Catch performance/security issues early
+
+# Check test coverage while developing
+@qa *trace {in-progress-story}
+# Output: docs/qa/assessments/{epic}.{story}-trace-{YYYYMMDD}.md
+# Why: Ensure you're writing the right tests
+```
+
+**AFTER Review (Post-Implementation):**
+
+```bash
+# Update gate decision after fixes
+@qa *gate {reviewed-story}
+# Output: docs/qa/gates/{epic}.{story}-{slug}.yml
+# Why: Document final quality decision
+```
+
+### Quality Standards Enforced
+
+Quinn enforces these test quality principles:
+
+- **No Flaky Tests**: Ensures reliability through proper async handling
+- **No Hard Waits**: Dynamic waiting strategies only
+- **Stateless & Parallel-Safe**: Tests run independently
+- **Self-Cleaning**: Tests manage their own test data
+- **Appropriate Test Levels**: Unit for logic, integration for interactions, E2E for journeys
+- **Explicit Assertions**: Keep assertions in tests, not helpers
+
+### Gate Status Meanings
+
+- **PASS**: All critical requirements met, no blocking issues
+- **CONCERNS**: Non-critical issues found, team should review
+- **FAIL**: Critical issues that should be addressed (security risks, missing P0 tests)
+- **WAIVED**: Issues acknowledged but explicitly accepted by team
+
+### Integration with Development Flow
+
+The Test Architect integrates seamlessly:
+
+1. **Planning Phase**: Can review test strategies early
+2. **Development Phase**: Developer implements with test guidelines in mind
+3. **Review Phase**: Comprehensive quality assessment
+4. **Gate Decision**: Clear go/no-go recommendation
+5. **Documentation**: All findings tracked for audit trail
+
+### Integration with BMad Workflow Stages
+
+#### Stage 1: Story Drafting (SM Creates Story)
+
+**Optional but Valuable:**
+
+- Run `*design` on draft → Give to Dev as test requirements
+- Run `*risk` on draft → Highlight concerns for Dev to address
+
+#### Stage 2: Development (Dev Implements)
+
+**Mid-Development Checkpoints:**
+
+- Dev can run `*trace` → Verify tests are being created
+- Dev can run `*nfr` → Check performance/security early
+
+#### Stage 3: Review (Story Ready)
+
+**Standard Review:**
+
+- Run `*review` → Complete assessment + gate decision
+
+**If Issues Found:**
+
+- After fixes, run `*gate` → Update gate status
+
+#### Special Situations
+
+**High-Risk Stories:**
+
+- Always run `*risk` and `*design` before development
+
+**Complex Integrations:**
+
+- Run `*trace` to ensure all integration points tested
+
+**Performance-Critical:**
+
+- Run `*nfr` during development, not just at review
+
+### Best Practices
+
+- **Early Engagement**: Run `*design` and `*risk` during story drafting
+- **Risk-Based Focus**: Let risk scores drive test prioritization
+- **Iterative Improvement**: Use QA feedback to improve future stories
+- **Gate Transparency**: Share gate decisions with the team
+- **Continuous Learning**: QA documents patterns for team knowledge sharing
+- **Brownfield Care**: Pay extra attention to regression risks in existing systems
 
 ## Technical Preferences System
 
