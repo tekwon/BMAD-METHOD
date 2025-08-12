@@ -93,7 +93,7 @@ trace:
   totals:
     requirements: X
     full: Y
-    partial: Z  
+    partial: Z
     none: W
   planning_ref: "docs/qa/assessments/{epic}.{story}-test-design-{YYYYMMDD}.md"
   uncovered:

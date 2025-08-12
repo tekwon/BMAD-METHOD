@@ -17,6 +17,7 @@ Generate a standalone quality gate file that provides a clear pass/fail decision
 **ALWAYS** create file at: `docs/qa/gates/{epic}.{story}-{slug}.yml`
 
 Slug rules:
+
 - Convert to lowercase
 - Replace spaces with hyphens
 - Strip punctuation
@@ -31,8 +32,8 @@ gate: PASS|CONCERNS|FAIL|WAIVED
 status_reason: "1-2 sentence explanation of gate decision"
 reviewer: "Quinn"
 updated: "{ISO-8601 timestamp}"
-top_issues: []  # Empty array if no issues
-waiver: { active: false }  # Only set active: true if WAIVED
+top_issues: [] # Empty array if no issues
+waiver: { active: false } # Only set active: true if WAIVED
 ```
 
 ## Schema with Issues
@@ -46,7 +47,7 @@ reviewer: "Quinn"
 updated: "2025-01-12T10:15:00Z"
 top_issues:
   - id: "SEC-001"
-    severity: high  # ONLY: low|medium|high
+    severity: high # ONLY: low|medium|high
     finding: "No rate limiting on login endpoint"
     suggested_action: "Add rate limiting middleware before production"
   - id: "TEST-001"
@@ -79,21 +80,25 @@ waiver:
 ## Gate Decision Criteria
 
 ### PASS
+
 - All acceptance criteria met
 - No high-severity issues
 - Test coverage meets project standards
 
 ### CONCERNS
+
 - Non-blocking issues present
 - Should be tracked and scheduled
 - Can proceed with awareness
 
 ### FAIL
+
 - Acceptance criteria not met
 - High-severity issues present
 - Recommend return to InProgress
 
 ### WAIVED
+
 - Issues explicitly accepted
 - Requires approval and reason
 - Proceed despite known issues
@@ -101,6 +106,7 @@ waiver:
 ## Severity Scale
 
 **FIXED VALUES - NO VARIATIONS:**
+
 - `low`: Minor issues, cosmetic problems
 - `medium`: Should fix soon, not blocking
 - `high`: Critical issues, should block release
@@ -134,11 +140,13 @@ After creating gate file, append to story's QA Results section:
 ## QA Results
 
 ### Review Date: 2025-01-12
+
 ### Reviewed By: Quinn (Test Architect)
 
 [... existing review content ...]
 
 ### Gate Status
+
 Gate: CONCERNS → docs/qa/gates/1.3-user-auth-login.yml
 ```
 
