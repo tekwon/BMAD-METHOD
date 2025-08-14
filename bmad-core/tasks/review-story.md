@@ -7,7 +7,7 @@ Perform a comprehensive test architecture review with quality gate decision. Thi
 ```yaml
 required:
   - story_id: "{epic}.{story}" # e.g., "1.3"
-  - story_path: "docs/stories/{epic}.{story}.*.md"
+  - story_path: "{devStoryLocation}/{epic}.{story}.*.md" # Path from core-config.yaml
   - story_title: "{title}" # If missing, derive from story file H1
   - story_slug: "{slug}" # If missing, derive from title (lowercase, hyphenated)
 ```
@@ -171,6 +171,8 @@ Gate: {STATUS} → docs/qa/gates/{epic}.{story}-{slug}.yml
 Risk profile: docs/qa/assessments/{epic}.{story}-risk-{YYYYMMDD}.md
 NFR assessment: docs/qa/assessments/{epic}.{story}-nfr-{YYYYMMDD}.md
 
+# Note: Paths should reference core-config.yaml for custom configurations
+
 ### Recommended Status
 
 [✓ Ready for Done] / [✗ Changes Required - See unchecked items above]
@@ -182,7 +184,7 @@ NFR assessment: docs/qa/assessments/{epic}.{story}-nfr-{YYYYMMDD}.md
 **Template and Directory:**
 
 - Render from `templates/qa-gate-tmpl.yaml`
-- Create `docs/qa/gates/` directory if missing
+- Create `docs/qa/gates/` directory if missing (or configure in core-config.yaml)
 - Save to: `docs/qa/gates/{epic}.{story}-{slug}.yml`
 
 Gate file structure:
