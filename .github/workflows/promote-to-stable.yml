@@ -19,13 +19,15 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      actions: write
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -123,7 +125,28 @@ jobs:
 
       - name: Push changes to main
         run: |
-          git push origin HEAD:main
+          # Try direct push first (works if user has PAT_TOKEN with admin rights)
+          if git push origin HEAD:main 2>/dev/null; then
+            echo "✅ Successfully pushed to main branch"
+          else
+            echo "⚠️ Direct push failed (protected branch). Creating a pull request instead..."
+            
+            # Create a new branch for the changes
+            BRANCH_NAME="auto/promote-stable-${{ steps.version.outputs.new_version }}"
+            git checkout -b "$BRANCH_NAME"
+            git push -u origin "$BRANCH_NAME"
+            
+            # Create PR using GitHub CLI
+            gh pr create \
+              --title "🚀 Auto: Promote to stable v${{ steps.version.outputs.new_version }}" \
+              --body "Automated promotion to stable version ${{ steps.version.outputs.new_version }}" \
+              --base main \
+              --head "$BRANCH_NAME"
+            
+            echo "📝 Pull request created for stable promotion"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Publish to NPM with stable tag
         env:
