@@ -235,10 +235,10 @@ class IdeSetup extends BaseIdeSetup {
   }
 
   async setupWindsurf(installDir, selectedAgent) {
-    const windsurfRulesDir = path.join(installDir, '.windsurf', 'workflows');
+    const windsurfWorkflowDir = path.join(installDir, '.windsurf', 'workflows');
     const agents = selectedAgent ? [selectedAgent] : await this.getAllAgentIds(installDir);
 
-    await fileManager.ensureDirectory(windsurfRulesDir);
+    await fileManager.ensureDirectory(windsurfWorkflowDir);
 
     for (const agentId of agents) {
       // Find the agent file
@@ -246,42 +246,21 @@ class IdeSetup extends BaseIdeSetup {
 
       if (agentPath) {
         const agentContent = await fileManager.readFile(agentPath);
-        const mdPath = path.join(windsurfRulesDir, `${agentId}.md`);
+        const mdPath = path.join(windsurfWorkflowDir, `${agentId}.md`);
 
-        // Create MD content (similar to Cursor but without frontmatter)
-        let mdContent = `# ${agentId.toUpperCase()} Agent Rule\n\n`;
-        mdContent += `This rule is triggered when the user types \`@${agentId}\` and activates the ${await this.getAgentTitle(
-          agentId,
-          installDir,
-        )} agent persona.\n\n`;
-        mdContent += '## Agent Activation\n\n';
-        mdContent +=
-          'CRITICAL: Read the full YAML, start activation to alter your state of being, follow startup section instructions, stay in this being until told to exit this mode:\n\n';
-        mdContent += '```yaml\n';
-        // Extract just the YAML content from the agent file
-        const yamlContent = extractYamlFromAgent(agentContent);
-        if (yamlContent) {
-          mdContent += yamlContent;
-        } else {
-          // If no YAML found, include the whole content minus the header
-          mdContent += agentContent.replace(/^#.*$/m, '').trim();
-        }
-        mdContent += '\n```\n\n';
-        mdContent += '## File Reference\n\n';
-        const relativePath = path.relative(installDir, agentPath).replaceAll('\\', '/');
-        mdContent += `The complete agent definition is available in [${relativePath}](${relativePath}).\n\n`;
-        mdContent += '## Usage\n\n';
-        mdContent += `When the user types \`@${agentId}\`, activate this ${await this.getAgentTitle(
-          agentId,
-          installDir,
-        )} persona and follow all instructions defined in the YAML configuration above.\n`;
+        // Write the agent file contents prefixed with Windsurf frontmatter
+        let mdContent = `---\n`;
+        mdContent += `description: ${agentId}\n`;
+        mdContent += `auto_execution_mode: 3\n`;
+        mdContent += `---\n\n`;
+        mdContent += agentContent;
 
         await fileManager.writeFile(mdPath, mdContent);
-        console.log(chalk.green(`✓ Created rule: ${agentId}.md`));
+        console.log(chalk.green(`✓ Created workflow: ${agentId}.md`));
       }
     }
 
-    console.log(chalk.green(`\n✓ Created Windsurf rules in ${windsurfRulesDir}`));
+    console.log(chalk.green(`\n✓ Created Windsurf workflows in ${windsurfWorkflowDir}`));
 
     return true;
   }
