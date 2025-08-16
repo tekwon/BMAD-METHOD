@@ -1,8 +1,8 @@
 import js from '@eslint/js';
-import nodePlugin from 'eslint-plugin-n';
-import yml from 'eslint-plugin-yml';
-import unicorn from 'eslint-plugin-unicorn';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import nodePlugin from 'eslint-plugin-n';
+import unicorn from 'eslint-plugin-unicorn';
+import yml from 'eslint-plugin-yml';
 
 export default [
   // Global ignores for files/folders that should not be linted
@@ -30,8 +30,22 @@ export default [
     rules: {
       // Allow console for CLI tools in this repo
       'no-console': 'off',
-      // Do not enforce a specific YAML file extension (.yml vs .yaml)
-      'yml/file-extension': 'off',
+      // Enforce .yaml file extension for consistency
+      'yml/file-extension': [
+        'error',
+        {
+          extension: 'yaml',
+          caseSensitive: true,
+        },
+      ],
+      // Prefer double quotes in YAML wherever quoting is used, but allow the other to avoid escapes
+      'yml/quotes': [
+        'error',
+        {
+          prefer: 'double',
+          avoidEscape: true,
+        },
+      ],
       // Relax some Unicorn rules that are too opinionated for this codebase
       'unicorn/prevent-abbreviations': 'off',
       'unicorn/no-null': 'off',
@@ -80,7 +94,7 @@ export default [
 
   // YAML workflow templates allow empty mapping values intentionally
   {
-    files: ['bmad-core/workflows/**/*.{yml,yaml}'],
+    files: ['bmad-core/workflows/**/*.yaml'],
     rules: {
       'yml/no-empty-mapping-value': 'off',
     },
@@ -88,7 +102,7 @@ export default [
 
   // GitHub workflow files in this repo may use empty mapping values
   {
-    files: ['.github/workflows/**/*.{yml,yaml}'],
+    files: ['.github/workflows/**/*.yaml'],
     rules: {
       'yml/no-empty-mapping-value': 'off',
     },
@@ -96,7 +110,7 @@ export default [
 
   // Other GitHub YAML files may intentionally use empty values and reserved filenames
   {
-    files: ['.github/**/*.{yml,yaml}'],
+    files: ['.github/**/*.yaml'],
     rules: {
       'yml/no-empty-mapping-value': 'off',
       'unicorn/filename-case': 'off',

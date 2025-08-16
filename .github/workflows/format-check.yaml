@@ -1,6 +1,6 @@
 name: format-check
 
-on:
+"on":
   pull_request:
     branches: ["**"]
 

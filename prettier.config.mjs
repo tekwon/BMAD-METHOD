@@ -16,7 +16,7 @@ export default {
       options: { proseWrap: 'preserve' },
     },
     {
-      files: ['*.yml', '*.yaml'],
+      files: ['*.yaml'],
       options: { singleQuote: false },
     },
     {

@@ -1,6 +1,6 @@
 name: Promote to Stable
 
-on:
+"on":
   workflow_dispatch:
     inputs:
       version_bump:
