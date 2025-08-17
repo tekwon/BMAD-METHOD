@@ -1408,24 +1408,24 @@ template:
   output:
     format: markdown
     filename: docs/brief.md
-    title: 'Project Brief: {{project_name}}'
+    title: "Project Brief: {{project_name}}"
 
 workflow:
   mode: interactive
   elicitation: advanced-elicitation
   custom_elicitation:
-    title: 'Project Brief Elicitation Actions'
+    title: "Project Brief Elicitation Actions"
     options:
-      - 'Expand section with more specific details'
-      - 'Validate against similar successful products'
-      - 'Stress test assumptions with edge cases'
-      - 'Explore alternative solution approaches'
-      - 'Analyze resource/constraint trade-offs'
-      - 'Generate risk mitigation strategies'
-      - 'Challenge scope from MVP minimalist view'
-      - 'Brainstorm creative feature possibilities'
-      - 'If only we had [resource/capability/time]...'
-      - 'Proceed to next section'
+      - "Expand section with more specific details"
+      - "Validate against similar successful products"
+      - "Stress test assumptions with edge cases"
+      - "Explore alternative solution approaches"
+      - "Analyze resource/constraint trade-offs"
+      - "Generate risk mitigation strategies"
+      - "Challenge scope from MVP minimalist view"
+      - "Brainstorm creative feature possibilities"
+      - "If only we had [resource/capability/time]..."
+      - "Proceed to next section"
 
 sections:
   - id: introduction
@@ -1447,7 +1447,7 @@ sections:
       - Primary problem being solved
       - Target market identification
       - Key value proposition
-    template: '{{executive_summary_content}}'
+    template: "{{executive_summary_content}}"
 
   - id: problem-statement
     title: Problem Statement
@@ -1457,7 +1457,7 @@ sections:
       - Impact of the problem (quantify if possible)
       - Why existing solutions fall short
       - Urgency and importance of solving this now
-    template: '{{detailed_problem_description}}'
+    template: "{{detailed_problem_description}}"
 
   - id: proposed-solution
     title: Proposed Solution
@@ -1467,7 +1467,7 @@ sections:
       - Key differentiators from existing solutions
       - Why this solution will succeed where others haven't
       - High-level vision for the product
-    template: '{{solution_description}}'
+    template: "{{solution_description}}"
 
   - id: target-users
     title: Target Users
@@ -1479,12 +1479,12 @@ sections:
       - Goals they're trying to achieve
     sections:
       - id: primary-segment
-        title: 'Primary User Segment: {{segment_name}}'
-        template: '{{primary_user_description}}'
+        title: "Primary User Segment: {{segment_name}}"
+        template: "{{primary_user_description}}"
       - id: secondary-segment
-        title: 'Secondary User Segment: {{segment_name}}'
+        title: "Secondary User Segment: {{segment_name}}"
         condition: Has secondary user segment
-        template: '{{secondary_user_description}}'
+        template: "{{secondary_user_description}}"
 
   - id: goals-metrics
     title: Goals & Success Metrics
@@ -1493,15 +1493,15 @@ sections:
       - id: business-objectives
         title: Business Objectives
         type: bullet-list
-        template: '- {{objective_with_metric}}'
+        template: "- {{objective_with_metric}}"
       - id: user-success-metrics
         title: User Success Metrics
         type: bullet-list
-        template: '- {{user_metric}}'
+        template: "- {{user_metric}}"
       - id: kpis
         title: Key Performance Indicators (KPIs)
         type: bullet-list
-        template: '- {{kpi}}: {{definition_and_target}}'
+        template: "- {{kpi}}: {{definition_and_target}}"
 
   - id: mvp-scope
     title: MVP Scope
@@ -1510,14 +1510,14 @@ sections:
       - id: core-features
         title: Core Features (Must Have)
         type: bullet-list
-        template: '- **{{feature}}:** {{description_and_rationale}}'
+        template: "- **{{feature}}:** {{description_and_rationale}}"
       - id: out-of-scope
         title: Out of Scope for MVP
         type: bullet-list
-        template: '- {{feature_or_capability}}'
+        template: "- {{feature_or_capability}}"
       - id: mvp-success-criteria
         title: MVP Success Criteria
-        template: '{{mvp_success_definition}}'
+        template: "{{mvp_success_definition}}"
 
   - id: post-mvp-vision
     title: Post-MVP Vision
@@ -1525,13 +1525,13 @@ sections:
     sections:
       - id: phase-2-features
         title: Phase 2 Features
-        template: '{{next_priority_features}}'
+        template: "{{next_priority_features}}"
       - id: long-term-vision
         title: Long-term Vision
-        template: '{{one_two_year_vision}}'
+        template: "{{one_two_year_vision}}"
       - id: expansion-opportunities
         title: Expansion Opportunities
-        template: '{{potential_expansions}}'
+        template: "{{potential_expansions}}"
 
   - id: technical-considerations
     title: Technical Considerations
@@ -1572,7 +1572,7 @@ sections:
       - id: key-assumptions
         title: Key Assumptions
         type: bullet-list
-        template: '- {{assumption}}'
+        template: "- {{assumption}}"
 
   - id: risks-questions
     title: Risks & Open Questions
@@ -1581,15 +1581,15 @@ sections:
       - id: key-risks
         title: Key Risks
         type: bullet-list
-        template: '- **{{risk}}:** {{description_and_impact}}'
+        template: "- **{{risk}}:** {{description_and_impact}}"
       - id: open-questions
         title: Open Questions
         type: bullet-list
-        template: '- {{question}}'
+        template: "- {{question}}"
       - id: research-areas
         title: Areas Needing Further Research
         type: bullet-list
-        template: '- {{research_topic}}'
+        template: "- {{research_topic}}"
 
   - id: appendices
     title: Appendices
@@ -1606,10 +1606,10 @@ sections:
       - id: stakeholder-input
         title: B. Stakeholder Input
         condition: Has stakeholder feedback
-        template: '{{stakeholder_feedback}}'
+        template: "{{stakeholder_feedback}}"
       - id: references
         title: C. References
-        template: '{{relevant_links_and_docs}}'
+        template: "{{relevant_links_and_docs}}"
 
   - id: next-steps
     title: Next Steps
@@ -1617,7 +1617,7 @@ sections:
       - id: immediate-actions
         title: Immediate Actions
         type: numbered-list
-        template: '{{action_item}}'
+        template: "{{action_item}}"
       - id: pm-handoff
         title: PM Handoff
         content: |
@@ -1632,24 +1632,24 @@ template:
   output:
     format: markdown
     filename: docs/market-research.md
-    title: 'Market Research Report: {{project_product_name}}'
+    title: "Market Research Report: {{project_product_name}}"
 
 workflow:
   mode: interactive
   elicitation: advanced-elicitation
   custom_elicitation:
-    title: 'Market Research Elicitation Actions'
+    title: "Market Research Elicitation Actions"
     options:
-      - 'Expand market sizing calculations with sensitivity analysis'
-      - 'Deep dive into a specific customer segment'
-      - 'Analyze an emerging market trend in detail'
-      - 'Compare this market to an analogous market'
-      - 'Stress test market assumptions'
-      - 'Explore adjacent market opportunities'
-      - 'Challenge market definition and boundaries'
-      - 'Generate strategic scenarios (best/base/worst case)'
-      - 'If only we had considered [X market factor]...'
-      - 'Proceed to next section'
+      - "Expand market sizing calculations with sensitivity analysis"
+      - "Deep dive into a specific customer segment"
+      - "Analyze an emerging market trend in detail"
+      - "Compare this market to an analogous market"
+      - "Stress test market assumptions"
+      - "Explore adjacent market opportunities"
+      - "Challenge market definition and boundaries"
+      - "Generate strategic scenarios (best/base/worst case)"
+      - "If only we had considered [X market factor]..."
+      - "Proceed to next section"
 
 sections:
   - id: executive-summary
@@ -1731,7 +1731,7 @@ sections:
         repeatable: true
         sections:
           - id: segment
-            title: 'Segment {{segment_number}}: {{segment_name}}'
+            title: "Segment {{segment_number}}: {{segment_name}}"
             template: |
               - **Description:** {{brief_overview}}
               - **Size:** {{number_of_customers_market_value}}
@@ -1800,20 +1800,20 @@ sections:
         instruction: Analyze each force with specific evidence and implications
         sections:
           - id: supplier-power
-            title: 'Supplier Power: {{power_level}}'
-            template: '{{analysis_and_implications}}'
+            title: "Supplier Power: {{power_level}}"
+            template: "{{analysis_and_implications}}"
           - id: buyer-power
-            title: 'Buyer Power: {{power_level}}'
-            template: '{{analysis_and_implications}}'
+            title: "Buyer Power: {{power_level}}"
+            template: "{{analysis_and_implications}}"
           - id: competitive-rivalry
-            title: 'Competitive Rivalry: {{intensity_level}}'
-            template: '{{analysis_and_implications}}'
+            title: "Competitive Rivalry: {{intensity_level}}"
+            template: "{{analysis_and_implications}}"
           - id: threat-new-entry
-            title: 'Threat of New Entry: {{threat_level}}'
-            template: '{{analysis_and_implications}}'
+            title: "Threat of New Entry: {{threat_level}}"
+            template: "{{analysis_and_implications}}"
           - id: threat-substitutes
-            title: 'Threat of Substitutes: {{threat_level}}'
-            template: '{{analysis_and_implications}}'
+            title: "Threat of Substitutes: {{threat_level}}"
+            template: "{{analysis_and_implications}}"
       - id: adoption-lifecycle
         title: Technology Adoption Lifecycle Stage
         instruction: |
@@ -1831,7 +1831,7 @@ sections:
         repeatable: true
         sections:
           - id: opportunity
-            title: 'Opportunity {{opportunity_number}}: {{name}}'
+            title: "Opportunity {{opportunity_number}}: {{name}}"
             template: |
               - **Description:** {{what_is_the_opportunity}}
               - **Size/Potential:** {{quantified_potential}}
@@ -1887,24 +1887,24 @@ template:
   output:
     format: markdown
     filename: docs/competitor-analysis.md
-    title: 'Competitive Analysis Report: {{project_product_name}}'
+    title: "Competitive Analysis Report: {{project_product_name}}"
 
 workflow:
   mode: interactive
   elicitation: advanced-elicitation
   custom_elicitation:
-    title: 'Competitive Analysis Elicitation Actions'
+    title: "Competitive Analysis Elicitation Actions"
     options:
       - "Deep dive on a specific competitor's strategy"
-      - 'Analyze competitive dynamics in a specific segment'
-      - 'War game competitive responses to your moves'
-      - 'Explore partnership vs. competition scenarios'
-      - 'Stress test differentiation claims'
-      - 'Analyze disruption potential (yours or theirs)'
-      - 'Compare to competition in adjacent markets'
-      - 'Generate win/loss analysis insights'
+      - "Analyze competitive dynamics in a specific segment"
+      - "War game competitive responses to your moves"
+      - "Explore partnership vs. competition scenarios"
+      - "Stress test differentiation claims"
+      - "Analyze disruption potential (yours or theirs)"
+      - "Compare to competition in adjacent markets"
+      - "Generate win/loss analysis insights"
       - "If only we had known about [competitor X's plan]..."
-      - 'Proceed to next section'
+      - "Proceed to next section"
 
 sections:
   - id: executive-summary
@@ -1971,7 +1971,7 @@ sections:
     repeatable: true
     sections:
       - id: competitor
-        title: '{{competitor_name}} - Priority {{priority_level}}'
+        title: "{{competitor_name}} - Priority {{priority_level}}"
         sections:
           - id: company-overview
             title: Company Overview
@@ -2003,11 +2003,11 @@ sections:
               - id: strengths
                 title: Strengths
                 type: bullet-list
-                template: '- {{strength}}'
+                template: "- {{strength}}"
               - id: weaknesses
                 title: Weaknesses
                 type: bullet-list
-                template: '- {{weakness}}'
+                template: "- {{weakness}}"
           - id: market-position
             title: Market Position & Performance
             template: |
@@ -2025,35 +2025,35 @@ sections:
         type: table
         columns:
           [
-            'Feature Category',
-            '{{your_company}}',
-            '{{competitor_1}}',
-            '{{competitor_2}}',
-            '{{competitor_3}}',
+            "Feature Category",
+            "{{your_company}}",
+            "{{competitor_1}}",
+            "{{competitor_2}}",
+            "{{competitor_3}}",
           ]
         rows:
-          - category: 'Core Functionality'
+          - category: "Core Functionality"
             items:
-              - ['Feature A', '{{status}}', '{{status}}', '{{status}}', '{{status}}']
-              - ['Feature B', '{{status}}', '{{status}}', '{{status}}', '{{status}}']
-          - category: 'User Experience'
+              - ["Feature A", "{{status}}", "{{status}}", "{{status}}", "{{status}}"]
+              - ["Feature B", "{{status}}", "{{status}}", "{{status}}", "{{status}}"]
+          - category: "User Experience"
             items:
-              - ['Mobile App', '{{rating}}', '{{rating}}', '{{rating}}', '{{rating}}']
-              - ['Onboarding Time', '{{time}}', '{{time}}', '{{time}}', '{{time}}']
-          - category: 'Integration & Ecosystem'
+              - ["Mobile App", "{{rating}}", "{{rating}}", "{{rating}}", "{{rating}}"]
+              - ["Onboarding Time", "{{time}}", "{{time}}", "{{time}}", "{{time}}"]
+          - category: "Integration & Ecosystem"
             items:
               - [
-                  'API Availability',
-                  '{{availability}}',
-                  '{{availability}}',
-                  '{{availability}}',
-                  '{{availability}}',
+                  "API Availability",
+                  "{{availability}}",
+                  "{{availability}}",
+                  "{{availability}}",
+                  "{{availability}}",
                 ]
-              - ['Third-party Integrations', '{{number}}', '{{number}}', '{{number}}', '{{number}}']
-          - category: 'Pricing & Plans'
+              - ["Third-party Integrations", "{{number}}", "{{number}}", "{{number}}", "{{number}}"]
+          - category: "Pricing & Plans"
             items:
-              - ['Starting Price', '{{price}}', '{{price}}', '{{price}}', '{{price}}']
-              - ['Free Tier', '{{yes_no}}', '{{yes_no}}', '{{yes_no}}', '{{yes_no}}']
+              - ["Starting Price", "{{price}}", "{{price}}", "{{price}}", "{{price}}"]
+              - ["Free Tier", "{{yes_no}}", "{{yes_no}}", "{{yes_no}}", "{{yes_no}}"]
       - id: swot-comparison
         title: SWOT Comparison
         instruction: Create SWOT analysis for your solution vs. top competitors
@@ -2066,7 +2066,7 @@ sections:
               - **Opportunities:** {{opportunities}}
               - **Threats:** {{threats}}
           - id: vs-competitor
-            title: 'vs. {{main_competitor}}'
+            title: "vs. {{main_competitor}}"
             template: |
               - **Competitive Advantages:** {{your_advantages}}
               - **Competitive Disadvantages:** {{their_advantages}}
@@ -2196,7 +2196,7 @@ template:
   output:
     format: markdown
     filename: docs/brainstorming-session-results.md
-    title: 'Brainstorming Session Results'
+    title: "Brainstorming Session Results"
 
 workflow:
   mode: non-interactive
@@ -2221,38 +2221,38 @@ sections:
 
           **Total Ideas Generated:** {{total_ideas}}
       - id: key-themes
-        title: 'Key Themes Identified:'
+        title: "Key Themes Identified:"
         type: bullet-list
-        template: '- {{theme}}'
+        template: "- {{theme}}"
 
   - id: technique-sessions
     title: Technique Sessions
     repeatable: true
     sections:
       - id: technique
-        title: '{{technique_name}} - {{duration}}'
+        title: "{{technique_name}} - {{duration}}"
         sections:
           - id: description
-            template: '**Description:** {{technique_description}}'
+            template: "**Description:** {{technique_description}}"
           - id: ideas-generated
-            title: 'Ideas Generated:'
+            title: "Ideas Generated:"
             type: numbered-list
-            template: '{{idea}}'
+            template: "{{idea}}"
           - id: insights
-            title: 'Insights Discovered:'
+            title: "Insights Discovered:"
             type: bullet-list
-            template: '- {{insight}}'
+            template: "- {{insight}}"
           - id: connections
-            title: 'Notable Connections:'
+            title: "Notable Connections:"
             type: bullet-list
-            template: '- {{connection}}'
+            template: "- {{connection}}"
 
   - id: idea-categorization
     title: Idea Categorization
     sections:
       - id: immediate-opportunities
         title: Immediate Opportunities
-        content: '*Ideas ready to implement now*'
+        content: "*Ideas ready to implement now*"
         repeatable: true
         type: numbered-list
         template: |
@@ -2262,7 +2262,7 @@ sections:
           - Resources needed: {{requirements}}
       - id: future-innovations
         title: Future Innovations
-        content: '*Ideas requiring development/research*'
+        content: "*Ideas requiring development/research*"
         repeatable: true
         type: numbered-list
         template: |
@@ -2272,7 +2272,7 @@ sections:
           - Timeline estimate: {{timeline}}
       - id: moonshots
         title: Moonshots
-        content: '*Ambitious, transformative concepts*'
+        content: "*Ambitious, transformative concepts*"
         repeatable: true
         type: numbered-list
         template: |
@@ -2282,9 +2282,9 @@ sections:
           - Challenges to overcome: {{challenges}}
       - id: insights-learnings
         title: Insights & Learnings
-        content: '*Key realizations from the session*'
+        content: "*Key realizations from the session*"
         type: bullet-list
-        template: '- {{insight}}: {{description_and_implications}}'
+        template: "- {{insight}}: {{description_and_implications}}"
 
   - id: action-planning
     title: Action Planning
@@ -2293,21 +2293,21 @@ sections:
         title: Top 3 Priority Ideas
         sections:
           - id: priority-1
-            title: '#1 Priority: {{idea_name}}'
+            title: "#1 Priority: {{idea_name}}"
             template: |
               - Rationale: {{rationale}}
               - Next steps: {{next_steps}}
               - Resources needed: {{resources}}
               - Timeline: {{timeline}}
           - id: priority-2
-            title: '#2 Priority: {{idea_name}}'
+            title: "#2 Priority: {{idea_name}}"
             template: |
               - Rationale: {{rationale}}
               - Next steps: {{next_steps}}
               - Resources needed: {{resources}}
               - Timeline: {{timeline}}
           - id: priority-3
-            title: '#3 Priority: {{idea_name}}'
+            title: "#3 Priority: {{idea_name}}"
             template: |
               - Rationale: {{rationale}}
               - Next steps: {{next_steps}}
@@ -2320,19 +2320,19 @@ sections:
       - id: what-worked
         title: What Worked Well
         type: bullet-list
-        template: '- {{aspect}}'
+        template: "- {{aspect}}"
       - id: areas-exploration
         title: Areas for Further Exploration
         type: bullet-list
-        template: '- {{area}}: {{reason}}'
+        template: "- {{area}}: {{reason}}"
       - id: recommended-techniques
         title: Recommended Follow-up Techniques
         type: bullet-list
-        template: '- {{technique}}: {{reason}}'
+        template: "- {{technique}}: {{reason}}"
       - id: questions-emerged
         title: Questions That Emerged
         type: bullet-list
-        template: '- {{question}}'
+        template: "- {{question}}"
       - id: next-session
         title: Next Session Planning
         template: |
@@ -3335,8 +3335,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'docs/{{game_name}}-game-design-document.md'
-    title: '{{game_title}} Game Design Document (GDD)'
+    filename: "docs/{{game_name}}-game-design-document.md"
+    title: "{{game_title}} Game Design Document (GDD)"
 
 workflow:
   mode: interactive
@@ -3373,7 +3373,7 @@ sections:
         title: Unique Selling Points
         instruction: List 3-5 key features that differentiate this game from competitors
         type: numbered-list
-        template: '{{usp}}'
+        template: "{{usp}}"
 
   - id: core-gameplay
     title: Core Gameplay
@@ -3418,7 +3418,7 @@ sections:
         repeatable: true
         sections:
           - id: mechanic
-            title: '{{mechanic_name}}'
+            title: "{{mechanic_name}}"
             template: |
               **Description:** {{detailed_description}}
 
@@ -3483,7 +3483,7 @@ sections:
         repeatable: true
         sections:
           - id: level-type
-            title: '{{level_type_name}}'
+            title: "{{level_type_name}}"
             template: |
               **Purpose:** {{gameplay_purpose}}
               **Duration:** {{target_time}}
@@ -3584,10 +3584,10 @@ sections:
     instruction: Break down the development into phases that can be converted to epics
     sections:
       - id: phase-1-core-systems
-        title: 'Phase 1: Core Systems ({{duration}})'
+        title: "Phase 1: Core Systems ({{duration}})"
         sections:
           - id: foundation-epic
-            title: 'Epic: Foundation'
+            title: "Epic: Foundation"
             type: bullet-list
             template: |
               - Engine setup and configuration
@@ -3595,41 +3595,41 @@ sections:
               - Core input handling
               - Asset loading pipeline
           - id: core-mechanics-epic
-            title: 'Epic: Core Mechanics'
+            title: "Epic: Core Mechanics"
             type: bullet-list
             template: |
               - {{primary_mechanic}} implementation
               - Basic physics and collision
               - Player controller
       - id: phase-2-gameplay-features
-        title: 'Phase 2: Gameplay Features ({{duration}})'
+        title: "Phase 2: Gameplay Features ({{duration}})"
         sections:
           - id: game-systems-epic
-            title: 'Epic: Game Systems'
+            title: "Epic: Game Systems"
             type: bullet-list
             template: |
               - {{mechanic_2}} implementation
               - {{mechanic_3}} implementation
               - Game state management
           - id: content-creation-epic
-            title: 'Epic: Content Creation'
+            title: "Epic: Content Creation"
             type: bullet-list
             template: |
               - Level loading system
               - First playable levels
               - Basic UI implementation
       - id: phase-3-polish-optimization
-        title: 'Phase 3: Polish & Optimization ({{duration}})'
+        title: "Phase 3: Polish & Optimization ({{duration}})"
         sections:
           - id: performance-epic
-            title: 'Epic: Performance'
+            title: "Epic: Performance"
             type: bullet-list
             template: |
               - Optimization and profiling
               - Mobile platform testing
               - Memory management
           - id: user-experience-epic
-            title: 'Epic: User Experience'
+            title: "Epic: User Experience"
             type: bullet-list
             template: |
               - Audio implementation
@@ -3671,7 +3671,7 @@ sections:
         title: References
         instruction: List any competitive analysis, inspiration, or research sources
         type: bullet-list
-        template: '{{reference}}'
+        template: "{{reference}}"
 ==================== END: .bmad-2d-phaser-game-dev/templates/game-design-doc-tmpl.yaml ====================
 
 ==================== START: .bmad-2d-phaser-game-dev/templates/level-design-doc-tmpl.yaml ====================
@@ -3681,8 +3681,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'docs/{{game_name}}-level-design-document.md'
-    title: '{{game_title}} Level Design Document'
+    filename: "docs/{{game_name}}-level-design-document.md"
+    title: "{{game_title}} Level Design Document"
 
 workflow:
   mode: interactive
@@ -3743,7 +3743,7 @@ sections:
     repeatable: true
     sections:
       - id: level-category
-        title: '{{category_name}} Levels'
+        title: "{{category_name}} Levels"
         template: |
           **Purpose:** {{gameplay_purpose}}
 
@@ -4048,19 +4048,19 @@ sections:
             title: Playtesting Checklist
             type: checklist
             items:
-              - 'Level completes within target time range'
-              - 'All mechanics function correctly'
-              - 'Difficulty feels appropriate for level category'
-              - 'Player guidance is clear and effective'
-              - 'No exploits or sequence breaks (unless intended)'
+              - "Level completes within target time range"
+              - "All mechanics function correctly"
+              - "Difficulty feels appropriate for level category"
+              - "Player guidance is clear and effective"
+              - "No exploits or sequence breaks (unless intended)"
           - id: player-experience-testing
             title: Player Experience Testing
             type: checklist
             items:
-              - 'Tutorial levels teach effectively'
-              - 'Challenge feels fair and rewarding'
-              - 'Flow and pacing maintain engagement'
-              - 'Audio and visual feedback support gameplay'
+              - "Tutorial levels teach effectively"
+              - "Challenge feels fair and rewarding"
+              - "Flow and pacing maintain engagement"
+              - "Audio and visual feedback support gameplay"
       - id: balance-validation
         title: Balance Validation
         template: |
@@ -4168,8 +4168,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'docs/{{game_name}}-game-brief.md'
-    title: '{{game_title}} Game Brief'
+    filename: "docs/{{game_name}}-game-brief.md"
+    title: "{{game_title}} Game Brief"
 
 workflow:
   mode: interactive
@@ -4455,21 +4455,21 @@ sections:
         title: Development Roadmap
         sections:
           - id: phase-1-preproduction
-            title: 'Phase 1: Pre-Production ({{duration}})'
+            title: "Phase 1: Pre-Production ({{duration}})"
             type: bullet-list
             template: |
               - Detailed Game Design Document creation
               - Technical architecture planning
               - Art style exploration and pipeline setup
           - id: phase-2-prototype
-            title: 'Phase 2: Prototype ({{duration}})'
+            title: "Phase 2: Prototype ({{duration}})"
             type: bullet-list
             template: |
               - Core mechanic implementation
               - Technical proof of concept
               - Initial playtesting and iteration
           - id: phase-3-production
-            title: 'Phase 3: Production ({{duration}})'
+            title: "Phase 3: Production ({{duration}})"
             type: bullet-list
             template: |
               - Full feature development
@@ -4731,8 +4731,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'docs/{{game_name}}-game-architecture.md'
-    title: '{{game_title}} Game Architecture Document'
+    filename: "docs/{{game_name}}-game-architecture.md"
+    title: "{{game_title}} Game Architecture Document"
 
 workflow:
   mode: interactive
@@ -4956,7 +4956,7 @@ sections:
         repeatable: true
         sections:
           - id: mechanic-system
-            title: '{{mechanic_name}} System'
+            title: "{{mechanic_name}} System"
             template: |
               **Purpose:** {{system_purpose}}
 
@@ -5253,7 +5253,7 @@ sections:
     instruction: Break down the architecture implementation into phases that align with the GDD development phases
     sections:
       - id: phase-1-foundation
-        title: 'Phase 1: Foundation ({{duration}})'
+        title: "Phase 1: Foundation ({{duration}})"
         sections:
           - id: phase-1-core
             title: Core Systems
@@ -5271,7 +5271,7 @@ sections:
               - "Basic Scene Management System"
               - "Asset Loading Foundation"
       - id: phase-2-game-systems
-        title: 'Phase 2: Game Systems ({{duration}})'
+        title: "Phase 2: Game Systems ({{duration}})"
         sections:
           - id: phase-2-gameplay
             title: Gameplay Systems
@@ -5289,7 +5289,7 @@ sections:
               - "Physics and Collision Framework"
               - "Game State Management System"
       - id: phase-3-content-polish
-        title: 'Phase 3: Content & Polish ({{duration}})'
+        title: "Phase 3: Content & Polish ({{duration}})"
         sections:
           - id: phase-3-content
             title: Content Systems
@@ -6379,8 +6379,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'stories/{{epic_name}}/{{story_id}}-{{story_name}}.md'
-    title: 'Story: {{story_title}}'
+    filename: "stories/{{epic_name}}/{{story_id}}-{{story_name}}.md"
+    title: "Story: {{story_title}}"
 
 workflow:
   mode: interactive
@@ -6409,7 +6409,7 @@ sections:
   - id: description
     title: Description
     instruction: Provide a clear, concise description of what this story implements. Focus on the specific game feature or system being built. Reference the GDD section that defines this feature.
-    template: '{{clear_description_of_what_needs_to_be_implemented}}'
+    template: "{{clear_description_of_what_needs_to_be_implemented}}"
 
   - id: acceptance-criteria
     title: Acceptance Criteria
@@ -6419,22 +6419,22 @@ sections:
         title: Functional Requirements
         type: checklist
         items:
-          - '{{specific_functional_requirement}}'
+          - "{{specific_functional_requirement}}"
       - id: technical-requirements
         title: Technical Requirements
         type: checklist
         items:
-          - 'Code follows TypeScript strict mode standards'
-          - 'Maintains 60 FPS on target devices'
-          - 'No memory leaks or performance degradation'
-          - '{{specific_technical_requirement}}'
+          - "Code follows TypeScript strict mode standards"
+          - "Maintains 60 FPS on target devices"
+          - "No memory leaks or performance degradation"
+          - "{{specific_technical_requirement}}"
       - id: game-design-requirements
         title: Game Design Requirements
         type: checklist
         items:
-          - '{{gameplay_requirement_from_gdd}}'
-          - '{{balance_requirement_if_applicable}}'
-          - '{{player_experience_requirement}}'
+          - "{{gameplay_requirement_from_gdd}}"
+          - "{{balance_requirement_if_applicable}}"
+          - "{{player_experience_requirement}}"
 
   - id: technical-specifications
     title: Technical Specifications
@@ -6599,14 +6599,14 @@ sections:
     instruction: Checklist that must be completed before the story is considered finished
     type: checklist
     items:
-      - 'All acceptance criteria met'
-      - 'Code reviewed and approved'
-      - 'Unit tests written and passing'
-      - 'Integration tests passing'
-      - 'Performance targets met'
-      - 'No linting errors'
-      - 'Documentation updated'
-      - '{{game_specific_dod_item}}'
+      - "All acceptance criteria met"
+      - "Code reviewed and approved"
+      - "Unit tests written and passing"
+      - "Integration tests passing"
+      - "Performance targets met"
+      - "No linting errors"
+      - "Documentation updated"
+      - "{{game_specific_dod_item}}"
 
   - id: notes
     title: Notes
@@ -6635,8 +6635,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'docs/{{game_name}}-game-architecture.md'
-    title: '{{game_title}} Game Architecture Document'
+    filename: "docs/{{game_name}}-game-architecture.md"
+    title: "{{game_title}} Game Architecture Document"
 
 workflow:
   mode: interactive
@@ -6860,7 +6860,7 @@ sections:
         repeatable: true
         sections:
           - id: mechanic-system
-            title: '{{mechanic_name}} System'
+            title: "{{mechanic_name}} System"
             template: |
               **Purpose:** {{system_purpose}}
 
@@ -7157,7 +7157,7 @@ sections:
     instruction: Break down the architecture implementation into phases that align with the GDD development phases
     sections:
       - id: phase-1-foundation
-        title: 'Phase 1: Foundation ({{duration}})'
+        title: "Phase 1: Foundation ({{duration}})"
         sections:
           - id: phase-1-core
             title: Core Systems
@@ -7175,7 +7175,7 @@ sections:
               - "Basic Scene Management System"
               - "Asset Loading Foundation"
       - id: phase-2-game-systems
-        title: 'Phase 2: Game Systems ({{duration}})'
+        title: "Phase 2: Game Systems ({{duration}})"
         sections:
           - id: phase-2-gameplay
             title: Gameplay Systems
@@ -7193,7 +7193,7 @@ sections:
               - "Physics and Collision Framework"
               - "Game State Management System"
       - id: phase-3-content-polish
-        title: 'Phase 3: Content & Polish ({{duration}})'
+        title: "Phase 3: Content & Polish ({{duration}})"
         sections:
           - id: phase-3-content
             title: Content Systems
@@ -7251,8 +7251,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'docs/{{game_name}}-game-brief.md'
-    title: '{{game_title}} Game Brief'
+    filename: "docs/{{game_name}}-game-brief.md"
+    title: "{{game_title}} Game Brief"
 
 workflow:
   mode: interactive
@@ -7538,21 +7538,21 @@ sections:
         title: Development Roadmap
         sections:
           - id: phase-1-preproduction
-            title: 'Phase 1: Pre-Production ({{duration}})'
+            title: "Phase 1: Pre-Production ({{duration}})"
             type: bullet-list
             template: |
               - Detailed Game Design Document creation
               - Technical architecture planning
               - Art style exploration and pipeline setup
           - id: phase-2-prototype
-            title: 'Phase 2: Prototype ({{duration}})'
+            title: "Phase 2: Prototype ({{duration}})"
             type: bullet-list
             template: |
               - Core mechanic implementation
               - Technical proof of concept
               - Initial playtesting and iteration
           - id: phase-3-production
-            title: 'Phase 3: Production ({{duration}})'
+            title: "Phase 3: Production ({{duration}})"
             type: bullet-list
             template: |
               - Full feature development
@@ -7610,8 +7610,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'docs/{{game_name}}-game-design-document.md'
-    title: '{{game_title}} Game Design Document (GDD)'
+    filename: "docs/{{game_name}}-game-design-document.md"
+    title: "{{game_title}} Game Design Document (GDD)"
 
 workflow:
   mode: interactive
@@ -7648,7 +7648,7 @@ sections:
         title: Unique Selling Points
         instruction: List 3-5 key features that differentiate this game from competitors
         type: numbered-list
-        template: '{{usp}}'
+        template: "{{usp}}"
 
   - id: core-gameplay
     title: Core Gameplay
@@ -7693,7 +7693,7 @@ sections:
         repeatable: true
         sections:
           - id: mechanic
-            title: '{{mechanic_name}}'
+            title: "{{mechanic_name}}"
             template: |
               **Description:** {{detailed_description}}
 
@@ -7758,7 +7758,7 @@ sections:
         repeatable: true
         sections:
           - id: level-type
-            title: '{{level_type_name}}'
+            title: "{{level_type_name}}"
             template: |
               **Purpose:** {{gameplay_purpose}}
               **Duration:** {{target_time}}
@@ -7859,10 +7859,10 @@ sections:
     instruction: Break down the development into phases that can be converted to epics
     sections:
       - id: phase-1-core-systems
-        title: 'Phase 1: Core Systems ({{duration}})'
+        title: "Phase 1: Core Systems ({{duration}})"
         sections:
           - id: foundation-epic
-            title: 'Epic: Foundation'
+            title: "Epic: Foundation"
             type: bullet-list
             template: |
               - Engine setup and configuration
@@ -7870,41 +7870,41 @@ sections:
               - Core input handling
               - Asset loading pipeline
           - id: core-mechanics-epic
-            title: 'Epic: Core Mechanics'
+            title: "Epic: Core Mechanics"
             type: bullet-list
             template: |
               - {{primary_mechanic}} implementation
               - Basic physics and collision
               - Player controller
       - id: phase-2-gameplay-features
-        title: 'Phase 2: Gameplay Features ({{duration}})'
+        title: "Phase 2: Gameplay Features ({{duration}})"
         sections:
           - id: game-systems-epic
-            title: 'Epic: Game Systems'
+            title: "Epic: Game Systems"
             type: bullet-list
             template: |
               - {{mechanic_2}} implementation
               - {{mechanic_3}} implementation
               - Game state management
           - id: content-creation-epic
-            title: 'Epic: Content Creation'
+            title: "Epic: Content Creation"
             type: bullet-list
             template: |
               - Level loading system
               - First playable levels
               - Basic UI implementation
       - id: phase-3-polish-optimization
-        title: 'Phase 3: Polish & Optimization ({{duration}})'
+        title: "Phase 3: Polish & Optimization ({{duration}})"
         sections:
           - id: performance-epic
-            title: 'Epic: Performance'
+            title: "Epic: Performance"
             type: bullet-list
             template: |
               - Optimization and profiling
               - Mobile platform testing
               - Memory management
           - id: user-experience-epic
-            title: 'Epic: User Experience'
+            title: "Epic: User Experience"
             type: bullet-list
             template: |
               - Audio implementation
@@ -7946,7 +7946,7 @@ sections:
         title: References
         instruction: List any competitive analysis, inspiration, or research sources
         type: bullet-list
-        template: '{{reference}}'
+        template: "{{reference}}"
 ==================== END: .bmad-2d-phaser-game-dev/templates/game-design-doc-tmpl.yaml ====================
 
 ==================== START: .bmad-2d-phaser-game-dev/templates/game-story-tmpl.yaml ====================
@@ -7956,8 +7956,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'stories/{{epic_name}}/{{story_id}}-{{story_name}}.md'
-    title: 'Story: {{story_title}}'
+    filename: "stories/{{epic_name}}/{{story_id}}-{{story_name}}.md"
+    title: "Story: {{story_title}}"
 
 workflow:
   mode: interactive
@@ -7986,7 +7986,7 @@ sections:
   - id: description
     title: Description
     instruction: Provide a clear, concise description of what this story implements. Focus on the specific game feature or system being built. Reference the GDD section that defines this feature.
-    template: '{{clear_description_of_what_needs_to_be_implemented}}'
+    template: "{{clear_description_of_what_needs_to_be_implemented}}"
 
   - id: acceptance-criteria
     title: Acceptance Criteria
@@ -7996,22 +7996,22 @@ sections:
         title: Functional Requirements
         type: checklist
         items:
-          - '{{specific_functional_requirement}}'
+          - "{{specific_functional_requirement}}"
       - id: technical-requirements
         title: Technical Requirements
         type: checklist
         items:
-          - 'Code follows TypeScript strict mode standards'
-          - 'Maintains 60 FPS on target devices'
-          - 'No memory leaks or performance degradation'
-          - '{{specific_technical_requirement}}'
+          - "Code follows TypeScript strict mode standards"
+          - "Maintains 60 FPS on target devices"
+          - "No memory leaks or performance degradation"
+          - "{{specific_technical_requirement}}"
       - id: game-design-requirements
         title: Game Design Requirements
         type: checklist
         items:
-          - '{{gameplay_requirement_from_gdd}}'
-          - '{{balance_requirement_if_applicable}}'
-          - '{{player_experience_requirement}}'
+          - "{{gameplay_requirement_from_gdd}}"
+          - "{{balance_requirement_if_applicable}}"
+          - "{{player_experience_requirement}}"
 
   - id: technical-specifications
     title: Technical Specifications
@@ -8176,14 +8176,14 @@ sections:
     instruction: Checklist that must be completed before the story is considered finished
     type: checklist
     items:
-      - 'All acceptance criteria met'
-      - 'Code reviewed and approved'
-      - 'Unit tests written and passing'
-      - 'Integration tests passing'
-      - 'Performance targets met'
-      - 'No linting errors'
-      - 'Documentation updated'
-      - '{{game_specific_dod_item}}'
+      - "All acceptance criteria met"
+      - "Code reviewed and approved"
+      - "Unit tests written and passing"
+      - "Integration tests passing"
+      - "Performance targets met"
+      - "No linting errors"
+      - "Documentation updated"
+      - "{{game_specific_dod_item}}"
 
   - id: notes
     title: Notes
@@ -8212,8 +8212,8 @@ template:
   version: 2.0
   output:
     format: markdown
-    filename: 'docs/{{game_name}}-level-design-document.md'
-    title: '{{game_title}} Level Design Document'
+    filename: "docs/{{game_name}}-level-design-document.md"
+    title: "{{game_title}} Level Design Document"
 
 workflow:
   mode: interactive
@@ -8274,7 +8274,7 @@ sections:
     repeatable: true
     sections:
       - id: level-category
-        title: '{{category_name}} Levels'
+        title: "{{category_name}} Levels"
         template: |
           **Purpose:** {{gameplay_purpose}}
 
@@ -8579,19 +8579,19 @@ sections:
             title: Playtesting Checklist
             type: checklist
             items:
-              - 'Level completes within target time range'
-              - 'All mechanics function correctly'
-              - 'Difficulty feels appropriate for level category'
-              - 'Player guidance is clear and effective'
-              - 'No exploits or sequence breaks (unless intended)'
+              - "Level completes within target time range"
+              - "All mechanics function correctly"
+              - "Difficulty feels appropriate for level category"
+              - "Player guidance is clear and effective"
+              - "No exploits or sequence breaks (unless intended)"
           - id: player-experience-testing
             title: Player Experience Testing
             type: checklist
             items:
-              - 'Tutorial levels teach effectively'
-              - 'Challenge feels fair and rewarding'
-              - 'Flow and pacing maintain engagement'
-              - 'Audio and visual feedback support gameplay'
+              - "Tutorial levels teach effectively"
+              - "Challenge feels fair and rewarding"
+              - "Flow and pacing maintain engagement"
+              - "Audio and visual feedback support gameplay"
       - id: balance-validation
         title: Balance Validation
         template: |
@@ -9917,7 +9917,7 @@ workflow:
       notes: Implement stories in priority order. Test frequently and adjust design based on what feels fun. Document discoveries.
   workflow_end:
     action: prototype_evaluation
-    notes: 'Prototype complete. Evaluate core mechanics, gather feedback, and decide next steps: iterate, expand, or archive.'
+    notes: "Prototype complete. Evaluate core mechanics, gather feedback, and decide next steps: iterate, expand, or archive."
   game_jam_sequence:
     - step: jam_concept
       agent: game-designer
