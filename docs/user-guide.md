@@ -109,7 +109,7 @@ graph TD
     B3 -->|Validation Requested| B4["PO: Validate Story Against Artifacts<br/>*validate-story-draft {story}"]
     B3 -->|Skip Validation| C{"User Approval"}
     B4 --> C
-    C -->|Approved| D["Dev: Sequential Task Executiony"]
+    C -->|Approved| D["Dev: Sequential Task Execution"]
     C -->|Needs Changes| B2
     D --> E["Dev: Implement Tasks + Tests<br/>*develop-story"]
     E --> V{"Mid-Dev QA Check? (Optional)"}
