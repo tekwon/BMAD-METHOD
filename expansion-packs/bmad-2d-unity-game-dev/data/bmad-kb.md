@@ -132,7 +132,7 @@ npx bmad-method install
 
 **Verify Game Development Installation**:
 
-- `.bmad-core/` folder created with all core agents
+- `bmad-core/` folder created with all core agents
 - `.bmad-2d-unity-game-dev/` folder with game development agents
 - IDE-specific integration files created
 - Game development agents available with `/bmad2du` prefix (per config.yaml)

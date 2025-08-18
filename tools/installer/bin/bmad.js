@@ -254,9 +254,9 @@ async function promptInstallation() {
       currentVersion === newVersion
         ? `(v${currentVersion} - reinstall)`
         : `(v${currentVersion} → v${newVersion})`;
-    bmadOptionText = `Update ${coreShortTitle} ${versionInfo} .bmad-core`;
+    bmadOptionText = `Update ${coreShortTitle} ${versionInfo} bmad-core`;
   } else {
-    bmadOptionText = `${coreShortTitle} (v${version}) .bmad-core`;
+    bmadOptionText = `${coreShortTitle} (v${version}) bmad-core`;
   }
 
   choices.push({

@@ -41,22 +41,22 @@ class WebBuilder {
 
   generateWebInstructions(bundleType, packName = null) {
     // Generate dynamic web instructions based on bundle type
-    const rootExample = packName ? `.${packName}` : '.bmad-core';
+    const rootExample = packName ? `.${packName}` : 'bmad-core';
     const examplePath = packName
       ? `.${packName}/folder/filename.md`
-      : '.bmad-core/folder/filename.md';
+      : 'bmad-core/folder/filename.md';
     const personasExample = packName
       ? `.${packName}/personas/analyst.md`
-      : '.bmad-core/personas/analyst.md';
+      : 'bmad-core/personas/analyst.md';
     const tasksExample = packName
       ? `.${packName}/tasks/create-story.md`
-      : '.bmad-core/tasks/create-story.md';
+      : 'bmad-core/tasks/create-story.md';
     const utilitiesExample = packName
       ? `.${packName}/utils/template-format.md`
-      : '.bmad-core/utils/template-format.md';
+      : 'bmad-core/utils/template-format.md';
     const tasksReference = packName
       ? `.${packName}/tasks/create-story.md`
-      : '.bmad-core/tasks/create-story.md';
+      : 'bmad-core/tasks/create-story.md';
 
     return `# Web Agent Bundle Instructions
 

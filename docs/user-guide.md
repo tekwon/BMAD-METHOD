@@ -468,7 +468,7 @@ Quick reference for where Test Architect outputs are stored:
 
 ## Technical Preferences System
 
-BMad includes a personalization system through the `technical-preferences.md` file located in `.bmad-core/data/` - this can help bias the PM and Architect to recommend your preferences for design patterns, technology selection, or anything else you would like to put in here.
+BMad includes a personalization system through the `technical-preferences.md` file located in `bmad-core/data/` - this can help bias the PM and Architect to recommend your preferences for design patterns, technology selection, or anything else you would like to put in here.
 
 ### Using with Web Bundles
 

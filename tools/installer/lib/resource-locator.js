@@ -251,7 +251,7 @@ class ResourceLocator {
         if (Array.isArray(deps)) {
           byType[type] = deps;
           for (const dep of deps) {
-            allDeps.push(`.bmad-core/${type}/${dep}`);
+            allDeps.push(`bmad-core/${type}/${dep}`);
           }
         }
       }

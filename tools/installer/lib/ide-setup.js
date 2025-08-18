@@ -113,7 +113,7 @@ class IdeSetup extends BaseIdeSetup {
       coreSlashPrefix,
       coreAgents,
       coreTasks,
-      '.bmad-core',
+      'bmad-core',
     );
 
     // Setup expansion pack commands
@@ -151,7 +151,7 @@ class IdeSetup extends BaseIdeSetup {
       coreSlashPrefix,
       coreAgents,
       coreTasks,
-      '.bmad-core',
+      'bmad-core',
     );
 
     // Setup expansion pack commands
@@ -445,7 +445,7 @@ class IdeSetup extends BaseIdeSetup {
   async findAgentPath(agentId, installDir) {
     // Try to find the agent file in various locations
     const possiblePaths = [
-      path.join(installDir, '.bmad-core', 'agents', `${agentId}.md`),
+      path.join(installDir, 'bmad-core', 'agents', `${agentId}.md`),
       path.join(installDir, 'agents', `${agentId}.md`),
     ];
 
@@ -469,8 +469,8 @@ class IdeSetup extends BaseIdeSetup {
     const glob = require('glob');
     const allAgentIds = [];
 
-    // Check core agents in .bmad-core or root
-    let agentsDir = path.join(installDir, '.bmad-core', 'agents');
+    // Check core agents in bmad-core or root
+    let agentsDir = path.join(installDir, 'bmad-core', 'agents');
     if (!(await fileManager.pathExists(agentsDir))) {
       agentsDir = path.join(installDir, 'agents');
     }
@@ -495,8 +495,8 @@ class IdeSetup extends BaseIdeSetup {
   async getCoreAgentIds(installDir) {
     const allAgentIds = [];
 
-    // Check core agents in .bmad-core or root only
-    let agentsDir = path.join(installDir, '.bmad-core', 'agents');
+    // Check core agents in bmad-core or root only
+    let agentsDir = path.join(installDir, 'bmad-core', 'agents');
     if (!(await fileManager.pathExists(agentsDir))) {
       agentsDir = path.join(installDir, 'bmad-core', 'agents');
     }
@@ -513,8 +513,8 @@ class IdeSetup extends BaseIdeSetup {
   async getCoreTaskIds(installDir) {
     const allTaskIds = [];
 
-    // Check core tasks in .bmad-core or root only
-    let tasksDir = path.join(installDir, '.bmad-core', 'tasks');
+    // Check core tasks in bmad-core or root only
+    let tasksDir = path.join(installDir, 'bmad-core', 'tasks');
     if (!(await fileManager.pathExists(tasksDir))) {
       tasksDir = path.join(installDir, 'bmad-core', 'tasks');
     }
@@ -538,7 +538,7 @@ class IdeSetup extends BaseIdeSetup {
   async getAgentTitle(agentId, installDir) {
     // Try to find the agent file in various locations
     const possiblePaths = [
-      path.join(installDir, '.bmad-core', 'agents', `${agentId}.md`),
+      path.join(installDir, 'bmad-core', 'agents', `${agentId}.md`),
       path.join(installDir, 'agents', `${agentId}.md`),
     ];
 
@@ -579,8 +579,8 @@ class IdeSetup extends BaseIdeSetup {
     const glob = require('glob');
     const allTaskIds = [];
 
-    // Check core tasks in .bmad-core or root
-    let tasksDir = path.join(installDir, '.bmad-core', 'tasks');
+    // Check core tasks in bmad-core or root
+    let tasksDir = path.join(installDir, 'bmad-core', 'tasks');
     if (!(await fileManager.pathExists(tasksDir))) {
       tasksDir = path.join(installDir, 'bmad-core', 'tasks');
     }
@@ -623,7 +623,7 @@ class IdeSetup extends BaseIdeSetup {
   async findTaskPath(taskId, installDir) {
     // Try to find the task file in various locations
     const possiblePaths = [
-      path.join(installDir, '.bmad-core', 'tasks', `${taskId}.md`),
+      path.join(installDir, 'bmad-core', 'tasks', `${taskId}.md`),
       path.join(installDir, 'bmad-core', 'tasks', `${taskId}.md`),
       path.join(installDir, 'common', 'tasks', `${taskId}.md`),
     ];
@@ -657,7 +657,7 @@ class IdeSetup extends BaseIdeSetup {
 
   async getCoreSlashPrefix(installDir) {
     try {
-      const coreConfigPath = path.join(installDir, '.bmad-core', 'core-config.yaml');
+      const coreConfigPath = path.join(installDir, 'bmad-core', 'core-config.yaml');
       if (!(await fileManager.pathExists(coreConfigPath))) {
         // Try bmad-core directory
         const altConfigPath = path.join(installDir, 'bmad-core', 'core-config.yaml');
@@ -686,7 +686,7 @@ class IdeSetup extends BaseIdeSetup {
     const dotExpansions = glob.sync('.bmad-*', { cwd: installDir });
 
     for (const dotExpansion of dotExpansions) {
-      if (dotExpansion !== '.bmad-core') {
+      if (dotExpansion !== 'bmad-core') {
         const packPath = path.join(installDir, dotExpansion);
         const packName = dotExpansion.slice(1); // remove the dot
         expansionPacks.push({
@@ -1012,7 +1012,7 @@ class IdeSetup extends BaseIdeSetup {
         }
         mdContent += '\n```\n\n';
         mdContent += '## Project Standards\n\n';
-        mdContent += `- Always maintain consistency with project documentation in .bmad-core/\n`;
+        mdContent += `- Always maintain consistency with project documentation in bmad-core/\n`;
         mdContent += `- Follow the agent's specific guidelines and constraints\n`;
         mdContent += `- Update relevant project files when making changes\n`;
         const relativePath = path.relative(installDir, agentPath).replaceAll('\\', '/');
