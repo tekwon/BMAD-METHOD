@@ -27,7 +27,8 @@ class Installer {
 
     try {
       // Store the original CWD where npx was executed
-      const originalCwd = process.env.INIT_CWD || process.env.PWD || process.cwd();
+      const originalCwd =
+        process.env.BMAD_ORIGINAL_CWD || process.env.INIT_CWD || process.env.PWD || process.cwd();
 
       // Resolve installation directory relative to where the user ran the command
       let installDir = path.isAbsolute(config.directory)
