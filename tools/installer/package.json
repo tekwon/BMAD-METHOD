@@ -32,11 +32,17 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^14.0.0",
+    "comment-json": "^4.2.3",
     "fs-extra": "^11.3.0",
+    "glob": "^10.3.0",
     "inquirer": "^8.2.6",
     "js-yaml": "^4.1.0",
     "ora": "^5.4.1",
     "semver": "^7.6.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0"
   },
   "engines": {
     "node": ">=20.0.0"
